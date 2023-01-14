@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS `BlockchainEntity` (`uid` TEXT NOT NULL, `name` TEXT NOT NULL, `explorerUrl` TEXT, PRIMARY KEY(`uid`));
 CREATE TABLE IF NOT EXISTS `Coin` (`uid` TEXT NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `marketCapRank` INTEGER, `coinGeckoId` TEXT, PRIMARY KEY(`uid`));
 CREATE TABLE IF NOT EXISTS `TokenEntity` (`coinUid` TEXT NOT NULL, `blockchainUid` TEXT NOT NULL, `type` TEXT NOT NULL, `decimals` INTEGER, `reference` TEXT, PRIMARY KEY(`coinUid`, `blockchainUid`, `type`), FOREIGN KEY(`coinUid`) REFERENCES `Coin`(`uid`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`blockchainUid`) REFERENCES `BlockchainEntity`(`uid`) ON UPDATE NO ACTION ON DELETE CASCADE );
+INSERT INTO BlockchainEntity VALUES('hashbit','HashBit Blockchain','https://explorer.hashbit.org/address/$ref');
 INSERT INTO BlockchainEntity VALUES('swagbucks','SwagBucks',NULL);
 INSERT INTO BlockchainEntity VALUES('tuxcoin','Tuxcoin',NULL);
 INSERT INTO BlockchainEntity VALUES('moneta','Moneta',NULL);
@@ -12775,7 +12776,7 @@ INSERT INTO TokenEntity VALUES('greyhound','xrp','xrp',NULL,'rJWBaKCpQw47vF4rr7X
 INSERT INTO TokenEntity VALUES('honey','xdai','xdai',NULL,'0x71850b7e9ee3f13ab46d67167341e4bdc905eef9');
 INSERT INTO TokenEntity VALUES('hokkaidu-inu','huobi-token','huobi-token',NULL,'0x4ebf49cc2d2dd029e5cfdf868316385dffd94c6a');
 INSERT INTO TokenEntity VALUES('green-dildo-finance','binance-smart-chain','eip20',9,'0x718f127435213b48c1564c71558608df5770fe68');
-INSERT INTO TokenEntity VALUES('hashbit','binance-smart-chain','eip20',18,'0x142749adb4176ee465592bbaadd5bd71f58017f1');
+INSERT INTO TokenEntity VALUES('hashbit','binance-smart-chain','eip20',18,'0xEda3866f07566d9379a91A07F8D62e19C03183e0');
 INSERT INTO TokenEntity VALUES('helicopter-finance','binance-smart-chain','eip20',9,'0xbc12ad556581ff7162e595e5956f5f3845fdb38c');
 INSERT INTO TokenEntity VALUES('honeybee','binance-smart-chain','eip20',18,'0x1a8d7ac01d21991bf5249a3657c97b2b6d919222');
 INSERT INTO TokenEntity VALUES('hub-token','ethereum','eip20',18,'0xba358b6f5b4c0215650444b8c30d870b55050d2d');
